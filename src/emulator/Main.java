@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Chip8 chip8 = new Chip8();
         try {
-            chip8.loadGame("c8games\\INVADERS");
+            chip8.loadGame("c8games/INVADERS");
         } catch (IOException e) {
             e.printStackTrace();
         }
