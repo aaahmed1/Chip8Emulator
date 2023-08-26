@@ -37,11 +37,21 @@ public class Main {
         }
         //Keyboard keyboard = new Keyboard(display.panel, chip8.key, chip8.isPressed, chip8.pressedKey);
 
+        int cycles = -1;
         for (;;) {
             try {
                 chip8.emulateCycle();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+            cycles++;
+            if (cycles == 8) {
+                cycles = 0;
+                if (chip8.delayTimer > 0) chip8.delayTimer--;
+                if (chip8.soundTimer > 0) {
+                    if (chip8.soundTimer == 1) System.out.println("BEEP");
+                    chip8.soundTimer--;
+                }
             }
 
             if (chip8.drawFlag) {
@@ -52,7 +62,7 @@ public class Main {
             //System.out.println(System.nanoTime() - begin);
 
             try {
-                Thread.sleep(5);
+                Thread.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

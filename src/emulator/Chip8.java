@@ -273,25 +273,6 @@ public class Chip8 {
             default:
                 System.out.println("Unknown opcode: " + Integer.toHexString(opcode) + " at " + pc);
         }
-        if (delayTimer > 0) delayTimer--;
-        if (soundTimer > 0) {
-            if (soundTimer == 1) System.out.println("BEEP");
-            soundTimer--;
-        }
-        //System.out.println(Integer.toHexString(opcode));
-
-        /*
-        int numOnes = 0;
-        for (int i = 0; i < gfx.length; i++) {
-            for (int k = 0; k < gfx[0].length; k++) {
-                if (gfx[i][k] == 1) numOnes++;
-            }
-        }
-        System.out.println(Integer.toHexString(opcode) + " with numOnes: " + numOnes);
-
-         */
-
-
     }
 
 
